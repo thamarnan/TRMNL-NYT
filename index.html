@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic PDF Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        iframe {
+            width: 80%;
+            height: 90%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic PDF Viewer</h1>
+    <iframe id="pdfViewer" title="Embedded PDF"></iframe>
+
+    <script>
+        // Get today's date
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const date = String(today.getDate()).padStart(2, '0');
+
+        // Construct the dynamic URL
+        const pdfUrl = `https://static01.nyt.com/images/${year}/${month}/${date}/nytfrontpage/scan.pdf`;
+
+        // Set the iframe source to the dynamic URL
+        const pdfViewer = document.getElementById('pdfViewer');
+        pdfViewer.src = pdfUrl;
+    </script>
+</body>
+</html>
