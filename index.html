@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic PDF Viewer</title>
+    <title>Dynamic Image Viewer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,16 +15,16 @@
             justify-content: center;
             height: 100vh;
         }
-        iframe {
-            width: 80%;
-            height: 90%;
+        img {
+            max-width: 80%;
+            max-height: 90%;
             border: none;
         }
     </style>
 </head>
 <body>
-    <h1>Dynamic PDF Viewer</h1>
-    <iframe id="pdfViewer" title="Embedded PDF"></iframe>
+    <h1>Dynamic Image Viewer</h1>
+    <img id="imageViewer" alt="Dynamic Front Page">
 
     <script>
         // Get today's date
@@ -34,11 +34,11 @@
         const date = String(today.getDate()).padStart(2, '0');
 
         // Construct the dynamic URL
-        const pdfUrl = `https://static01.nyt.com/images/${year}/${month}/${date}/nytfrontpage/scan.pdf`;
+        const imageUrl = `https://www.washingtonpost.com/wp-stat/tablet/v1.1/${year}${month}${date}/A01_${year}${month}${date}_FrontPage.png`;
 
-        // Set the iframe source to the dynamic URL
-        const pdfViewer = document.getElementById('pdfViewer');
-        pdfViewer.src = pdfUrl;
+        // Set the image source to the dynamic URL
+        const imageViewer = document.getElementById('imageViewer');
+        imageViewer.src = imageUrl;
     </script>
 </body>
 </html>
